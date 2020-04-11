@@ -22,11 +22,14 @@ for file in list_of_files:
     file_month = file_time.strftime("%B")
     file_year_month = file_month + " " + file_year
     try:
-        os.mkdir(source_folder+"/"+file_year)
-    except FileExistsError:
-        continue
-    else:
         os.mkdir(source_folder + "/" + file_year)
+        os.mkdir(source_folder + "/" + file_year + "/" + file_year_month)
+    except FileExistsError:
+        pass
+    try:
+        os.mkdir(source_folder + "/" + file_year + "/" + file_year_month)
+    except FileExistsError:
+        pass
 
     print(f'{file}, {file_year}, {file_year_month}')
 
