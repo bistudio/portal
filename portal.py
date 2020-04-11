@@ -11,9 +11,15 @@ from tkinter import *
 #     for i in range(6, 10):
 #         f.write(f'This is line {i}\n')
 
+# provide path to source folder
+
 source_folder = "./source"
 
+# get list of files in source folder
+
 list_of_files = os.listdir(source_folder)
+
+# get the year and month of date file was modified
 
 for file in list_of_files:
     st = os.stat(source_folder+"/"+file)
@@ -32,5 +38,6 @@ for file in list_of_files:
         pass
 
     print(f'{file}, {file_year}, {file_year_month}')
+
 
 
