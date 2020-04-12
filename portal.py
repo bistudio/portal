@@ -51,9 +51,8 @@ for file in list_of_files:
     # move the files into the correct folders
 
     try:
-        # shu.move(source_folder+"/"+file, file_month_year_dir)
         shu.move(source_folder+"/"+file, file_ext_dir)
     except FileNotFoundError:
         pass
 
-    print(f'{file}, {file_year}, {file_year_month}, {source_folder+"/"+file}, {file_month_year_dir}')
+    print(f'{file}, {file_year}, {file_ext_dir}')
