@@ -1,39 +1,53 @@
 import re
 
-
 text_to_search = """
 
-ABCDEFGHIJKLMNOPQRSTUJVWXYZabcdefghijklmnopqrstuvwxyz
-0123456789
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-{[]}#~@/?><./\|&$£"!^-_=+*()
+1234567890
+
+coreyMS@gmail.com
+dandy_12@msn.edu
+likely-9lad2@yahoo.net
+getLost-87@putlook.gov
+
+Mr James Bond
+Mr. S Smith
+Ms Arcadia Davida
+Miss Sara Jay
+Mrs. Sammie Sparxxx
 
 01737 032 301
-0845 900 9900
-0207 331 3456
-020 8898 1347
-07963117521
+01275 667 778
+020 3396 8219
+07913 556 391
+07932273973
+0121 378 4244
 
-daniel_919@gmail.com
-bistudio@outlook.com
+124 Drury Lane, Covent Garden , London WC1A 4DG
 
-www.google.com
-https://msn.com
-http://amazon,co.uk
-
-Mrs. J. Smith
-Mr. Bob Balaban
-Miss. Ladyedee
-
-My very eyes may just see under nine planets
+file_1.ico
+text_file.txt
 
 """
 
-# to search for phone numbers
+# search for salutation and names
 
-#
-# pattern = re.compile(r'\d{4,5}\s\d{3,4}\s\d{3,4}')
-# matches = pattern.findall(text_to_search)
-#
-# for match in matches:
-#     print(match)
+# pattern = re.compile(r'M[r|s|iss|rs]+\.?\s[A-Z]\s?\w+\s?\w')
+
+# search for phone numbers
+
+# pattern = re.compile(r'\d{3,5}\s?\d{3,4}\s?\d{3,4}')
+
+# search for email addresses
+
+# pattern = re.compile(r'([a-zA-z0-9-_]+)@([a-zA-Z0-9]+)\.([a-zA-Z]+)')
+
+# file extention
+
+pattern = re.compile(r'([a-zA-Z0-9_-]+?)\.([a-zA-Z0-9]+)')
+matches = pattern.finditer(text_to_search)
+
+for match in matches:
+    print(match)
