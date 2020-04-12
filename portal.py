@@ -27,6 +27,7 @@ for list in file_list:
 # get the year and month of date file was modified
 
 for file in list_of_files:
+    file_extension = os.path.splitext(file)
     file_time_seconds = os.path.getctime(source_folder+"/"+file)
     file_time = dt.datetime.fromtimestamp(file_time_seconds)
     file_year = file_time.strftime("%Y")
@@ -34,20 +35,24 @@ for file in list_of_files:
     file_year_month = file_month + " " + file_year
     file_year_dir = source_folder + "/" + file_year
     file_month_year_dir = source_folder + "/" + file_year + "/" + file_year_month
+    file_ext_dir = file_month_year_dir+"/"+str(file_extension[-1]).replace(".", "")
+
     try:
         os.mkdir(file_year_dir)  # created year of file
         os.mkdir(file_month_year_dir)  # created month of file
+        os.mkdir(file_ext_dir)  # create file extension directory
     except FileExistsError:
         pass
     try:
-        os.mkdir(file_month_year_dir)
+        os.mkdir(file_ext_dir)
     except FileExistsError:
         pass
 
     # move the files into the correct folders
 
     try:
-        shu.move(source_folder+"/"+file, file_month_year_dir)
+        # shu.move(source_folder+"/"+file, file_month_year_dir)
+        shu.move(source_folder+"/"+file, file_ext_dir)
     except FileNotFoundError:
         pass
 
