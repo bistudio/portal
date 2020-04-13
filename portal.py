@@ -11,13 +11,16 @@ from tkinter import *
 LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 log.basicConfig(filename="./portal.log", level=log.DEBUG, format=LOG_FORMAT, filemode="w")
 logger = log.getLogger()
-logger.info("Initiate logging activity")
 
+# start logging activity
+
+logger.info("Initiate logging activity")
 
 # provide path to source folder
 
 source_folder = "./source"
 logger.info("Source folder specified")
+
 # get list of files in source folder
 
 file_list = os.listdir(source_folder)
