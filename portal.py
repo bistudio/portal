@@ -5,7 +5,6 @@ import datetime as dt
 import logging as log
 from tkinter import *
 
-
 # configure logging level and output file
 
 LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
