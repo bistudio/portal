@@ -50,7 +50,9 @@ for file in list_of_files:
     file_year_month = file_month + " " + file_year
     file_year_dir = source_folder + "/" + file_year
     file_month_year_dir = source_folder + "/" + file_year + "/" + file_year_month
-    file_ext_dir = file_month_year_dir+"/"+str(file_extension[-1]).capitalize().replace(".", "")
+    ext = file_extension[-1].replace(".", "").capitalize()
+    file_ext_dir = file_month_year_dir+"/"+ext
+
     try:
         os.mkdir(file_year_dir)  # created year of file
         os.mkdir(file_month_year_dir)  # created month of file
